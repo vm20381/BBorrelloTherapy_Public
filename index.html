@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B. Borrello Therapy - Transformative and Supportive Care</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="B. Borrello Therapy provides compassionate and transformative care for individuals, families, and young people. Visit our site to learn more about our approach to therapy.">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="therapy, counselling, B Borrello Therapy, mental health, support, counselling services, families, young people, Manchester">
+
+  <!-- Author -->
+  <meta name="author" content="B. Borrello Therapy">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" 
+    rel="stylesheet"
+  >
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo_favicon.png" />
+
+  <style>
+    :root {
+      --wild-willow: #a3cb76;    /* Light green */
+      --jewel: #106d3b;         /* Dark green accent */
+      --black-squeeze: #f0f9f7; /* Light background */
+      --chalet-green: #577440;  /* Extra green tone */
+      --white: #fff;
+    }
+
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--black-squeeze);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Fade-In Up */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header & Navigation */
+    header {
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 50;
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      position: relative;
+    }
+    .logo img {
+      height: 180px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Nav Links (Desktop) */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem; /* Larger spacing */
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+    }
+    .nav-links li {
+      display: inline-block;
+    }
+    .nav-links a {
+      font-size: 1.2rem;
+    }
+    .nav-links a:hover {
+      color: var(--jewel);
+    }
+
+    /* Hamburger Icon */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      z-index: 60;
+    }
+    .hamburger img {
+      width: 35px;
+      height: auto;
+    }
+
+    /* Mobile Nav Panel (Hidden by Default) */
+    @media (max-width: 768px) {
+      /* Hide the normal nav links horizontally */
+      .nav-links {
+        display: none;         /* Hidden on mobile until activated */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+        transform: translateX(100%); /* Off-screen to the right */
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        z-index: 55;
+      }
+      .hamburger {
+        display: block;        /* Show hamburger icon on small screens */
+      }
+    }
+
+    /* When Nav is Active (Hamburger clicked) */
+    .nav-links.active {
+      display: flex;
+      transform: translateX(0); /* Slide in from right */
+      opacity: 1;
+    }
+    /* Thin green lines between each link in mobile panel */
+    .nav-links.active li {
+      border-bottom: 1px solid var(--jewel);
+      padding-bottom: 0.5rem;
+    }
+    .nav-links.active li:last-child {
+      border-bottom: none;
+    }
+
+    /* Hide hamburger if menu is open */
+    .hamburger.hide {
+      display: none !important;
+    }
+
+    /* Page Sections */
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      min-height: 50vh;
+      margin-top: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .split-left,
+    .split-right {
+      flex: 1 1 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .split-left {
+      background-color: var(--jewel);
+      color: #fff;
+    }
+    .split-left img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      object-fit: cover;
+    }
+    .split-right {
+      background-color: var(--wild-willow);
+      color: #333;
+      flex-direction: column;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .big-heading {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--jewel);
+      font-weight: 700;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .phrase {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+    }
+    .split-btn {
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      background-color: var(--chalet-green);
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+      font-size: 1.1rem;
+      border: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .split-btn:hover {
+      background-color: var(--jewel);
+    }
+
+    /* Meet Bianca */
+    .meet-bianca {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .meet-bianca h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--jewel);
+      margin-bottom: 1rem;
+    }
+    .meet-bianca p {
+      margin-bottom: 1rem;
+    }
+    .read-more-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background-color: var(--chalet-green);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .read-more-btn:hover {
+      background-color: var(--jewel);
+    }
+    .arrow-icon {
+      margin-left: 0.5rem;
+    }
+
+    /* Services */
+    .services {
+      background-color: var(--wild-willow);
+      padding: 3rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .services h2 {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--jewel);
+      margin-bottom: 2rem;
+    }
+    .service-cards {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    .service-icon {
+      width: 225px;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--jewel);
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background-color: var(--jewel);
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      max-width: 30%;
+      text-align: center;
+      color: var(--white);
+    }
+    .signature {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: right;
+      color: var(--wild-willow);
+    }
+
+    /* Contact */
+    .contact {
+      max-width: 1100px;
+      margin: 3rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-info {
+      flex: 1 1 300px;
+    }
+    .contact-info h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--jewel);
+      margin-bottom: 1rem;
+    }
+    .contact-form {
+      flex: 1 1 400px;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .contact-form button {
+      padding: 0.75rem 1.5rem;
+      background-color: var(--jewel);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: "Segoe UI", sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: var(--chalet-green);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      background-color: var(--wild-willow);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 3rem;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+      font-family: "Segoe UI", sans-serif;
+    }
+    footer a {
+      color: var(--jewel);
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+    footer a:hover {
+      color: var(--chalet-green);
+    }
+    .footer-logo {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      width: 100px;
+    }
+    .bacp-logo {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: 200px;
+    }
+
+    /* Mobile Layout Adjustments */
+    @media (max-width: 768px) {
+      .split-section {
+        flex-direction: column;
+      }
+      .split-left,
+      .split-right {
+        flex: 1 1 100%;
+      }
+      .footer-logo, .bacp-logo {
+        position: static;
+        display: block;
+        margin: 1rem auto 0 auto;
+      }
+      .testimonials {
+        padding: 2rem 1rem;
+      }
+      .testimonial {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo_no.png" alt="B. Borrello Therapy">
+      </div>
+
+      <!-- Hamburger icon -->
+      <div class="hamburger">
+        <img src="hamburger_icon.png" alt="Menu Icon">
+      </div>
+
+      <!-- Nav links -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#meet-bianca">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="myapproach.html">My Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Split Section -->
+  <section class="split-section fade-in-up" id="split-section">
+    <div class="split-left">
+      <img src="bianca_hero.jpg" alt="Bianca Borrello">
+    </div>
+    <div class="split-right">
+      <div class="big-heading">B. Borrello Therapy</div>
+      <div class="phrase">
+        Your journey to emotional well-being and growth starts here
+      </div>
+      <button class="split-btn" onclick="window.location.href='#contact'">Get in touch</button>
+    </div>
+  </section>
+
+  <!-- Meet Bianca Section -->
+  <section class="meet-bianca fade-in-up" id="meet-bianca">
+    <h2>Meet Bianca Borrello</h2>
+    <p>
+      Hi, I’m Bianca, a psychotherapist and counsellor based in Manchester. 
+      Growing up across the Middle East, I was immersed in vibrant, multicultural communities,
+      which have profoundly shaped my perspective and approach to therapy.
+    </p>
+    <p>
+      My journey into this profession was inspired by my own childhood experiences and the 
+      life-changing support I received through therapy as an adult. I am passionate about 
+      helping others and have extensive experience working with adults, teenagers, and 
+      young people to navigate life’s challenges. Supporting clients on their journey 
+      towards growth, healing, and self-discovery is at the heart of what I do.
+    </p>
+    <a class="read-more-btn" href="myapproach.html">
+      Read More <span class="arrow-icon">&#8594;</span>
+    </a>
+  </section>
+
+  <!-- Services -->
+  <section class="services fade-in-up" id="services">
+    <h2>Therapy Services</h2>
+    <div class="service-cards">
+      <div class="service-card">
+        <img class="service-icon" src="individ_couns.png" alt="Individual Counselling Icon">
+        <h3>Individual Counselling</h3>
+        <p>
+          One-on-one support tailored to your personal journey, focusing on holistic growth and resilience.
+        </p>
+      </div>
+      <div class="service-card">
+        <img class="service-icon" src="workshops.png" alt="Workshops Icon">
+        <h3>Workshops</h3>
+        <p>
+          Interactive sessions designed to empower groups with practical skills 
+          and strategies for personal development.
+        </p>
+      </div>
+      <div class="service-card">
+        <img class="service-icon" src="fam_couns.png" alt="Family Counselling Icon">
+        <h3>Family Counselling</h3>
+        <p>
+          Improve communication and strengthen relationships by addressing
+          family dynamics and conflict resolution strategies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials fade-in-up">
+    <div class="testimonial">
+      “I never thought I'd be someone who could be comfortable with deep stuff”
+      <br /><span class="signature">- NH aged 20</span>
+    </div>
+    <div class="testimonial">
+      “I hate talking about my worries, but feel like I can trust you with them”
+      <br /><span class="signature">- LJ aged 11</span>
+    </div>
+    <div class="testimonial">
+      “This is the only place I feel safe to cry, thank you for never judging me”
+      <br /><span class="signature">- FR aged 19</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact fade-in-up" id="contact">
+    <div class="contact-info">
+      <h3>Contact Me</h3>
+      <p>
+        Have questions or ready to schedule an appointment? Reach out
+        and let’s start working together toward a happier, healthier you.
+      </p>
+      <p><strong>Email:</strong> 
+        <a href="mailto:hello@bborrellotherapy.com">hello@bborellotherapy.com</a>
+      </p>
+      <p><strong>Phone:</strong> +44 7931 907218</p>
+      <p>
+        <a href="https://www.instagram.com/b.borrellotherapy/" target="_blank" title="Instagram">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+            alt="Instagram" 
+            style="width:24px; height:24px; vertical-align:middle;"
+          />
+          <span style="margin-left:0.5rem;">@b.borrellotherapy</span>
+        </a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/bianca-borrello-406985111/" target="_blank" title="LinkedIn">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+            alt="LinkedIn" 
+            style="width:24px; height:24px; vertical-align:middle;"
+          />
+          <span style="margin-left:0.5rem;">LinkedIn Profile</span>
+        </a>
+      </p>
+    </div>
+    <div class="contact-form">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025  B. Borrello Therapy</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a>
+    </p>
+    <img class="footer-logo" src="logo_no.png" alt="B. Borrello Therapy">
+    <img class="bacp-logo" src="bacp.png" alt="BACP Logo">
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* Fade-In Observer */
+      const faders = document.querySelectorAll('.fade-in-up');
+      const appearOptions = { threshold: 0.1 };
+      const appearOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+
+      /* Contact Form Submission (Only if you have an API) */
+      const form = document.getElementById('contactForm');
+      
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+          };
+
+          const apiUrl = 'https://b5sdzvilp7.execute-api.eu-west-2.amazonaws.com/prod/contact'; 
+
+          try {
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData)
+            });
+            if (response.ok) {
+              window.location.href = "thankyou.html";
+            } else {
+                const errorResponse = await response.json();
+                console.error('Error response:', errorResponse);
+                alert("Error submitting form. See console for details.");
+            }
+          } catch (err) {
+            console.error(err);
+            alert("Server error. Please try again later.");
+          }
+        });
+      
+
+      /* Hamburger Toggle */
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', (event) => {
+        event.stopPropagation(); 
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('hide'); // Hide the icon once menu is open
+      });
+
+      /* Close menu if user clicks outside or on a link */
+      document.addEventListener('click', (event) => {
+        if (
+          navLinks.classList.contains('active') &&
+          !navLinks.contains(event.target) &&
+          !hamburger.contains(event.target)
+        ) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('hide');
+        }
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('hide');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

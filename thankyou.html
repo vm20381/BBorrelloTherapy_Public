@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Thank You - B. Borrello Therapy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - B. Borrello Therapy</title>
+
+  <!-- Google Font + Favicon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" 
+    rel="stylesheet"
+  >
+  <link rel="icon" type="image/png" href="logo_favicon.png" />
+
+  <style>
+    :root {
+      --wild-willow: #a3cb76;
+      --jewel: #106d3b;
+      --black-squeeze: #f0f9f7;
+      --chalet-green: #577440;
+      --white: #fff;
+    }
+
+    /* Global reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--black-squeeze);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Fade-in up */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header & Navigation */
+    header {
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 50;
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+    }
+    .logo img {
+      height: 180px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Desktop nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem; /* larger spacing */
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+    }
+    .nav-links li {
+      display: inline-block;
+    }
+    .nav-links a {
+      font-size: 1.2rem;
+    }
+    .nav-links a:hover {
+      color: var(--jewel);
+    }
+
+    /* Hamburger for small screens */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      z-index: 60;
+    }
+    .hamburger img {
+      width: 35px;
+      height: auto;
+    }
+
+    /* Mobile panel hidden by default */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+        transform: translateX(100%);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        z-index: 55;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* Active menu */
+    .nav-links.active {
+      display: flex;
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .nav-links.active li {
+      border-bottom: 1px solid var(--jewel);
+      padding-bottom: 0.5rem;
+    }
+    .nav-links.active li:last-child {
+      border-bottom: none;
+    }
+    /* Hide hamburger if menu open */
+    .hamburger.hide {
+      display: none !important;
+    }
+
+    /* Thank You Container */
+    .thank-you-container {
+      text-align: center;
+      max-width: 600px;
+      margin: 5rem auto;
+      background-color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .thank-you-container h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      color: var(--jewel);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .thank-you-container p {
+      margin-bottom: 1.5rem;
+    }
+    .thank-you-container p a {
+      color: var(--jewel);
+      text-decoration: underline;
+    }
+    .back-home {
+      display: inline-block;
+      font-weight: bold;
+      color: var(--jewel);
+      border: 2px solid var(--jewel);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 1rem;
+      text-decoration: none;
+    }
+    .back-home:hover {
+      background-color: var(--jewel);
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      background-color: var(--wild-willow);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+      font-family: "Segoe UI", sans-serif;
+    }
+    footer a {
+      color: var(--jewel);
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+    footer a:hover {
+      color: var(--chalet-green);
+    }
+    .footer-logo {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      width: 100px;
+    }
+    .bacp-logo {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .thank-you-container {
+        margin: 2rem auto;
+        width: 90%;
+        padding: 2rem 1rem;
+      }
+      .footer-logo, .bacp-logo {
+        position: static;
+        display: block;
+        margin: 1rem auto 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo_no.png" alt="B. Borrello Therapy">
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger">
+        <img src="hamburger_icon.png" alt="Menu Icon">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#meet-bianca">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="myapproach.html">My Approach</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Thank You Content -->
+  <div class="thank-you-container fade-in-up">
+    <h1>Thank You!</h1>
+    <p>Your message has been sent. We’ll be in touch soon.</p>
+    <p>
+      Meanwhile, feel free to explore our website for more information or follow us on 
+      <a href="https://www.instagram.com/b.borrellotherapy/" target="_blank">Instagram</a> for the latest updates.
+    </p>
+    <a class="back-home" href="index.html">Back to Home →</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 B. Borrello Therapy</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a>
+    </p>
+    <img class="footer-logo" src="logo_no.png" alt="B. Borrello Therapy">
+    <img class="bacp-logo" src="bacp.png" alt="BACP Logo">
+  </footer>
+
+  <!-- Fade-in & Hamburger script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Fade-In
+      const faders = document.querySelectorAll('.fade-in-up');
+      const appearOptions = { threshold: 0.1 };
+      const appearOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+
+      // Hamburger
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('hide');
+      });
+
+      // Close if user clicks outside or on a link
+      document.addEventListener('click', (event) => {
+        if (
+          navLinks.classList.contains('active') &&
+          !navLinks.contains(event.target) &&
+          !hamburger.contains(event.target)
+        ) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('hide');
+        }
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('hide');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

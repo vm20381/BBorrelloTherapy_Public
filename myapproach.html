@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="My Approach - B. Borrello Therapy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Approach - B. Borrello Therapy</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="B. Borrello Therapy provides compassionate and transformative care for individuals, families, and young people. Visit our site to learn more about our approach to therapy.">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="therapy, counselling, B Borrello Therapy, mental health, support, counselling services, families, young people, Manchester">
+
+  <!-- Author -->
+  <meta name="author" content="B. Borrello Therapy">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts + Favicon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" 
+    rel="stylesheet"
+  >
+  <link rel="icon" type="image/png" href="logo_favicon.png" />
+
+  <style>
+    :root {
+      --wild-willow: #a3cb76;    /* Light green */
+      --jewel: #106d3b;         /* Dark green accent */
+      --black-squeeze: #f0f9f7; /* Light background */
+      --chalet-green: #577440;  /* Extra green tone */
+      --white: #fff;
+    }
+
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--black-squeeze);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Fade-In Up */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header & Navigation */
+    header {
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 50;
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+    }
+    .logo img {
+      height: 180px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Desktop Nav Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem; /* slightly larger spacing */
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+    }
+    .nav-links li {
+      display: inline-block;
+    }
+    .nav-links a {
+      font-size: 1.2rem;
+    }
+    .nav-links a:hover {
+      color: var(--jewel);
+    }
+
+    /* Hamburger (light green icon) */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      z-index: 60;
+    }
+    .hamburger img {
+      width: 35px;
+      height: auto;
+    }
+
+    /* Mobile Panel (Hidden by Default) */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+        transform: translateX(100%);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        z-index: 55;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+    .nav-links.active {
+      display: flex;
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .nav-links.active li {
+      border-bottom: 1px solid var(--jewel);
+      padding-bottom: 0.5rem;
+    }
+    .nav-links.active li:last-child {
+      border-bottom: none;
+    }
+    .hamburger.hide {
+      display: none !important;
+    }
+
+    /* Page Heading */
+    .page-heading {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--jewel);
+      margin: 2rem 0;
+    }
+
+    /* Approach Content + Floated Images */
+    .approach-content {
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1rem;
+      line-height: 1.8;
+    }
+    .approach-content p {
+      margin-bottom: 1rem;
+    }
+
+    .first-block {
+      margin-bottom: 2rem;
+    }
+    .img-right {
+      float: right;
+      width: 40%;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .img-right img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .second-block {
+      clear: both;
+    }
+    .img-left {
+      float: left;
+      width: 30%;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .img-left img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      background-color: var(--wild-willow);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+      font-family: "Segoe UI", sans-serif;
+    }
+    footer a {
+      color: var(--jewel);
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+    footer a:hover {
+      color: var(--chalet-green);
+    }
+    .footer-logo {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      width: 100px;
+    }
+    .bacp-logo {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: 200px;
+    }
+
+    @media (max-width: 768px) {
+      /* floats off for images */
+      .img-right,
+      .img-left {
+        float: none;
+        width: 100% !important;
+        margin: 0 auto 1rem auto;
+        display: block;
+      }
+      .footer-logo, .bacp-logo {
+        position: static;
+        display: block;
+        margin: 1rem auto 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo_no.png" alt="B. Borrello Therapy">
+      </div>
+
+      <!-- Hamburger Icon for small screens -->
+      <div class="hamburger">
+        <img src="hamburger_icon.png" alt="Menu Icon">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#meet-bianca">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="myapproach.html">My Approach</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Heading -->
+  <h1 class="page-heading fade-in-up">My Approach</h1>
+
+  <div class="approach-content fade-in-up">
+    <!-- First Half (image on the right, text on the left) -->
+    <div class="first-block">
+      <div class="img-right">
+        <img src="img2.jpg" alt="Therapy Image 2">
+      </div>
+      <p>
+        I believe therapy is a transformative journey—a space where individuals, families, and 
+        young people can feel truly heard, understood, and supported. As a BACP-accredited 
+        psychotherapist and counsellor, my practice is grounded in empathy, unconditional 
+        positive regard, and a commitment to providing a safe, non-judgmental environment 
+        for every client.
+      </p>
+      <p>
+        Therapy isn’t just about solving problems; it’s about recognising and valuing the 
+        person behind the struggles. Whether you’re a child trying to understand the world, 
+        a teenager facing the pressures of school and life, an adult managing anxiety or depression, 
+        or a family dealing with significant change, my approach is rooted in genuine care 
+        and respect for your unique experience.
+      </p>
+      <p>
+        In my work with children and teenagers, I provide a supportive space where they can 
+        explore emotions and challenges they may find difficult to express elsewhere. This 
+        might include dealing with exam stress, social anxiety, OCD, grief, self-harm, or trauma. 
+        I focus on helping young people build resilience and develop tools to manage overwhelming 
+        emotions, guiding them towards greater confidence and calm.
+      </p>
+    </div>
+
+    <!-- Second Half (image on the left, text on the right) -->
+    <div class="second-block">
+      <div class="img-left">
+        <img src="img1.jpg" alt="Therapy Image 1">
+      </div>
+      <p>
+        For adults, therapy offers an opportunity to address deeper, long-standing issues such 
+        as trauma, substance misuse, or struggles with self-esteem. I believe that, no matter 
+        how complex or difficult your experiences may seem, change is always possible. Together, 
+        we can explore the roots of your struggles, navigate tough emotions, and develop 
+        practical strategies to improve your mental health and overall wellbeing.
+      </p>
+      <p>
+        For families, I aim to foster better communication and understanding. Family dynamics 
+        can often feel complex and overwhelming, especially when faced with trauma, conflict, 
+        or external pressures. By providing a space where families can connect and rebuild trust, 
+        I help them create healthier relationships and work through challenges together.
+      </p>
+      <p>
+        My therapeutic approach is collaborative and integrative, tailored to meet the unique 
+        needs of each client. I create a warm, supportive environment where you are accepted 
+        without judgment. In addition, I draw on techniques from Cognitive Behavioural Therapy (CBT), 
+        particularly for those dealing with anxiety, OCD, or unhelpful thought patterns. Using CBT, 
+        we can explore the links between thoughts and behaviours, empowering you to make 
+        positive changes.
+      </p>
+      <p>
+        Therapy is a deeply personal journey. It is rarely a quick fix and isn’t a one-size-fits-all process. 
+        But its impact can be profound—offering hope, equipping you with tools to manage life’s challenges, 
+        and helping you rediscover your inner strength. Whether we work together in person or online, 
+        my aim is to provide you with a safe, supportive space where you feel heard, valued, and 
+        empowered to make meaningful changes in your life.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 B. Borrello Therapy</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a>
+    </p>
+    <img class="footer-logo" src="logo_no.png" alt="B. Borrello Therapy">
+    <img class="bacp-logo" src="bacp.png" alt="BACP Logo">
+  </footer>
+
+  <!-- Intersection Observer + Hamburger Menu Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* Fade-in */
+      const faders = document.querySelectorAll('.fade-in-up');
+      const appearOptions = { threshold: 0.1 };
+      const appearOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+
+      /* Hamburger */
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      // Open/close nav
+      hamburger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('hide');
+      });
+
+      // Close if user clicks outside or on a link
+      document.addEventListener('click', (event) => {
+        if (
+          navLinks.classList.contains('active') &&
+          !navLinks.contains(event.target) &&
+          !hamburger.contains(event.target)
+        ) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('hide');
+        }
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('hide');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
